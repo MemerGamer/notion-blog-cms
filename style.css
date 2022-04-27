@@ -57,3 +57,18 @@ p{
   box-shadow: none;
   transform: scale(.9);
 }
+
+@media(prefers-color-scheme: dark){
+  html{
+    --shadow-strength: 5%;
+  }
+  body{
+    background-image: var(--gradient-8);
+  }
+  p{
+    color: white;
+  }
+  .card{
+    background-color: var(--gray-8);
+  }
+}
