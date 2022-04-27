@@ -1,35 +1,33 @@
-const { Client } = require("@notionhq/client");
+const { Client } = require('@notionhq/client');
 
 //pulling env variables from netlify
-const{NOTION_KEY, NOTION_DB} = process.env;
+const { NOTION_KEY, NOTION_DB } = process.env;
 
 // Initializing a client
 const notion = new Client({
     auth: NOTION_KEY,
-  });
+});
 
 exports.handler = async function (event, context) {
-    try{
+    try {
         const response = await notion.databases.query({
             database_id: NOTION_DB,
-            filter:{
-                property:'status',
-                select:{
-                    equals : 'Live',
+            filter: {
+                property: 'Status',
+                select: {
+                    equals: 'Live',
                 },
             },
         });
         return {
-        statusCode: 200,
-        body: JSON.stringify({ message: response }),
+            statusCode: 200,
+            body: JSON.stringify(response),
         };
-    }catch(error){
-        console.error(error);
+    } catch (e) {
+        console.error(e);
         return {
             statusCode: 500,
-            body: error.toString(),
-        }
+            body: e.toString(),
+        };
     }
-  };
-
-  
+};
