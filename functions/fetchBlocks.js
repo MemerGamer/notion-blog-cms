@@ -26,12 +26,16 @@ exports.handler = async function (event, context) {
         const response = await notion.blocks.children.list({
             block_id: blockId,
             filter:{
-                results: 'paragraph',
+                results: 'object',
                 select: {
-                    type: 'paragraph'
-                }
+                    type: 'block',
+                    paragraph: 'paragraph',
+                },
+
             },
         });
+
+        
 
         return {
             statusCode: 200,
