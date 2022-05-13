@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@notionhq/client": "^1.0.4",
+    "notion-page-to-html": "^1.1.4",
     "open-props": "^1.3.16"
   }
 }

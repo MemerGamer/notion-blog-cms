@@ -13,10 +13,11 @@ async function fetchDataFromAPIEndpoint() {
         <p>${card.properties.Content.rich_text[0].plain_text}
         </p>
       </div>
-      <a href="${card.properties.Link.url}" class="card__btn">${card.properties.Btn_text.rich_text[0].plain_text}</a>
+      <a href="api/fetchPage/articles?id=${card.properties.Link.url}" class="card__btn">${card.properties.Btn_text.rich_text[0].plain_text}</a>
     </article>
     `
     )
     .join("");
 }
 fetchDataFromAPIEndpoint();
+///api/fetchBlocks/articles?id=${card.properties.Link.url}
