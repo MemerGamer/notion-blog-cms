@@ -13,8 +13,8 @@ const notion = new Client({
 exports.handler = async function (event, context) {
     try {
         const blockId = event.queryStringParameters.id;
-        NotionPageToHtml.convert("https://www.notion.so/84e6bcaac3874867b226cc0da6eade2b/"+blockId).then((page) => console.log(page));
-        const { title, icon, cover, html } = await NotionPageToHtml.convert("https://www.notion.so/84e6bcaac3874867b226cc0da6eade2b/"+blockId);
+        NotionPageToHtml.convert("https://kovacs-balint-hunor.notion.site/About-Me-a52bc74855e94457a26aea2ec69f7612").then((page) => console.log(page));
+        const { title, icon, cover, html } = await NotionPageToHtml.convert("https://kovacs-balint-hunor.notion.site/About-Me-a52bc74855e94457a26aea2ec69f7612");
         console.log(title, icon, cover, html);
         return JSON.stringify(title,icon,cover,html);
 
